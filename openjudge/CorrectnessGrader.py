@@ -1,11 +1,17 @@
 import asyncio
 from openjudge.models import OpenAIChatModel
 from openjudge.graders.common import CorrectnessGrader
+from pathlib import Path
+from dotenv import load_dotenv
+
+env_path = Path(__file__).parent.parent / ".env"
+
+load_dotenv(dotenv_path=env_path)
 
 
 async def main():
     # 初始化模型和正确性评分器
-    model = OpenAIChatModel(model="qwen3.7-max")
+    model = OpenAIChatModel(model="auto")
     grader = CorrectnessGrader(model=model)
 
     # 数据准备-完美适配真相的用例

@@ -2,11 +2,17 @@ import asyncio
 from openjudge.graders.agent import ToolSelectionGrader
 from openjudge.models import OpenAIChatModel
 from openjudge.runner.grading_runner import GradingRunner, GraderConfig
+from pathlib import Path
+from dotenv import load_dotenv
+
+env_path = Path(__file__).parent.parent / ".env"
+
+load_dotenv(dotenv_path=env_path)
 
 
 async def main():
     # 初始化模型和工具选择评分器
-    model = OpenAIChatModel(model="qwen3.7-max")
+    model = OpenAIChatModel(model="auto")
     grader = ToolSelectionGrader(model=model)
 
     # 定义映射器：从单一agent轨迹（数据集单一用例）提取评分器输入；返回的是ToolSelectionGrader评估所需的参数
