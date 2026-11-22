@@ -2,3 +2,4 @@
 
 - openjudge
 - langchain
+- langgraph
