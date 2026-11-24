@@ -4,7 +4,7 @@ from langchain.chat_models import init_chat_model
 from langgraph.graph import StateGraph, MessagesState, START
 from langgraph.checkpoint.postgres import PostgresSaver
 
-env_path = Path(__file__).parent.parent / ".env"
+env_path = Path(__file__).parent.parent.parent / ".env"
 
 load_dotenv(dotenv_path=env_path)
 
